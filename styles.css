@@ -37,6 +37,14 @@ body {
     margin: 0;
     padding: 0;
     padding-bottom: 100px; /* Add space for sticky banner */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Hero Section */
@@ -2624,8 +2632,12 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Comprehensive Mobile Responsive Design */
 @media (max-width: 1024px) {
+    .hero-title-container {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
     .hero-title-container .hero-title {
         font-size: 2.8rem;
     }
@@ -2638,30 +2650,91 @@ body {
     
     .hero-left {
         text-align: center;
+        padding-right: 0;
+    }
+    
+    .hero-container {
+        padding: var(--space-md);
     }
     
     .doctor-image {
-        width: 400px;
-        height: 400px;
+        width: 350px;
+        height: 350px;
     }
     
     .workshop-details {
+        flex-direction: column;
         align-items: center;
+        padding: var(--space-lg);
     }
     
     .detail-card {
         max-width: 100%;
+        width: 100%;
+    }
+    
+    .bonuses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .hero-title-container .hero-title {
-        font-size: 2.2rem;
+    body {
+        padding-bottom: 150px;
     }
     
-    .doctor-image {
-        width: 300px;
-        height: 300px;
+    /* Attention Banner */
+    .attention-banner {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .attention-text {
+        font-size: 0.85rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+    }
+    
+    .hero-title-container {
+        padding: var(--space-md) var(--space-sm);
+    }
+    
+    .hero-title-container .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        gap: var(--space-xs);
+    }
+    
+    .hero-container {
+        padding: var(--space-md) var(--space-sm);
+    }
+    
+    .hero-content {
+        gap: var(--space-md);
+    }
+    
+    .hero-left {
+        gap: var(--space-md);
+    }
+    
+    /* Problem Statement */
+    .problem-statement {
+        padding: var(--space-md);
+        margin: var(--space-sm) 0;
+    }
+    
+    .problem-question {
+        margin-bottom: var(--space-md);
+    }
+    
+    .problem-question p {
+        font-size: 1.1rem;
+        line-height: 1.5;
     }
     
     .exclusions-grid {
@@ -2671,44 +2744,390 @@ body {
     
     .exclusion-item {
         padding: var(--space-sm);
+        font-size: 0.85rem;
     }
     
+    .exclusion-icon {
+        font-size: 1.2rem;
+    }
+    
+    /* Doctor Image */
+    .hero-right {
+        padding-top: var(--space-md);
+    }
+    
+    .doctor-image-container {
+        max-width: 300px;
+        height: 300px;
+    }
+    
+    .doctor-image {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .doctor-info {
+        max-width: 100%;
+        padding: var(--space-md);
+        margin-top: var(--space-md);
+    }
+    
+    .doctor-name {
+        font-size: 1.5rem;
+    }
+    
+    .doctor-title,
+    .doctor-company {
+        font-size: 0.95rem;
+    }
+    
+    /* Workshop Details */
     .workshop-details {
-        gap: var(--space-sm);
+        flex-direction: column;
+        gap: var(--space-md);
+        padding: var(--space-md);
+        margin: var(--space-lg) auto;
     }
     
     .detail-card {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        text-align: left;
+        gap: var(--space-md);
+        padding: var(--space-md);
+    }
+    
+    .detail-card i {
+        font-size: 2rem;
+    }
+    
+    .detail-label {
+        font-size: 0.85rem;
+    }
+    
+    .detail-value {
+        font-size: 1.1rem;
+    }
+    
+    /* Statistics */
+    .statistics-container {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+    }
+    
+    /* Bonuses */
+    .bonuses-title {
+        font-size: 2rem;
+    }
+    
+    .bonuses-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .bonus-card {
+        padding: var(--space-lg);
+    }
+    
+    /* CTA Section */
+    .cta-button {
+        font-size: 1.2rem;
+        padding: var(--space-md) var(--space-lg);
+    }
+    
+    .urgency-timer p {
+        font-size: 1rem;
+    }
+    
+    .workshop-timing {
+        font-size: 1rem !important;
+    }
+    
+    .countdown-timer {
+        gap: var(--space-md);
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: var(--space-sm);
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    /* Sticky Banner */
+    .banner-content {
         flex-direction: column;
-    text-align: center;
         gap: var(--space-sm);
+        padding: var(--space-sm);
+    }
+    
+    .banner-button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: var(--space-sm) var(--space-md);
+        white-space: normal;
+    }
+    
+    .urgency-text {
+        font-size: 1rem;
+    }
+    
+    .seats-text {
+        font-size: 0.9rem;
+    }
+    
+    .closing-text {
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-title-container .hero-title {
-        font-size: 1.8rem;
+    /* Attention Banner */
+    .attention-banner {
+        font-size: 0.8rem;
+        padding: var(--space-xs);
     }
     
-    .doctor-image {
-        width: 200px;
-        height: 200px;
+    /* Hero Title */
+    .hero-title-container {
+        padding: var(--space-sm);
+    }
+    
+    .hero-title-container .hero-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .hero-container {
+        padding: var(--space-sm);
+    }
+    
+    /* Problem Statement */
+    .problem-statement {
+        padding: var(--space-sm);
+    }
+    
+    .problem-question p {
+        font-size: 1rem;
     }
     
     .exclusions-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-xs);
+    }
+    
+    .exclusion-item {
+        padding: var(--space-xs);
+        font-size: 0.8rem;
+    }
+    
+    /* Doctor Image */
+    .doctor-image-container {
+        max-width: 250px;
+        height: 250px;
+    }
+    
+    .doctor-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .doctor-info {
+        padding: var(--space-sm);
+    }
+    
+    .doctor-name {
+        font-size: 1.3rem;
+    }
+    
+    .doctor-title,
+    .doctor-company {
+        font-size: 0.85rem;
+    }
+    
+    /* Workshop Details */
+    .workshop-details {
+        padding: var(--space-sm);
+        margin: var(--space-md) auto;
+    }
+    
+    .detail-card {
+        padding: var(--space-sm);
         gap: var(--space-sm);
     }
     
-    .problem-statement {
-        padding: var(--space-lg);
+    .detail-card i {
+        font-size: 1.5rem;
     }
     
-    .problem-question p {
+    .detail-label {
+        font-size: 0.8rem;
+    }
+    
+    .detail-value {
+        font-size: 1rem;
+    }
+    
+    .detail-sub {
+        font-size: 0.75rem;
+    }
+    
+    /* Statistics */
+    .statistics-container {
+        padding: var(--space-sm);
+    }
+    
+    .stat-card {
+        padding: var(--space-md);
+        min-height: 100px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    
+    /* Bonuses */
+    .bonuses-container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .bonuses-title {
+        font-size: 1.8rem;
+    }
+    
+    .total-value {
+        font-size: 1.2rem;
+    }
+    
+    .value-amount {
+        font-size: 1.6rem;
+    }
+    
+    .pricing-breakdown {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+    
+    .regular-price,
+    .today-price {
+        font-size: 1rem;
+    }
+    
+    .bonus-card {
+        padding: var(--space-md);
+    }
+    
+    .bonus-title {
         font-size: 1.1rem;
+    }
+    
+    .bonus-value {
+        font-size: 1rem;
+    }
+    
+    .bonus-content li {
+        font-size: 0.85rem;
+        padding-left: var(--space-sm);
+    }
+    
+    .bonuses-summary {
+        font-size: 1.2rem;
+    }
+    
+    .bonuses-cta {
+        font-size: 0.95rem;
+    }
+    
+    /* CTA Section */
+    .final-cta-section {
+        padding: var(--space-lg) var(--space-sm);
     }
     
     .cta-button {
-        font-size: 1.1rem;
-        padding: var(--space-md) var(--space-lg);
+        font-size: 1rem;
+        padding: var(--space-sm) var(--space-md);
+        word-wrap: break-word;
+        white-space: normal;
+        line-height: 1.4;
+    }
+    
+    .guarantee-text p {
+        font-size: 1rem;
+    }
+    
+    .urgency-timer {
+        margin-top: var(--space-md);
+    }
+    
+    .urgency-timer p {
+        font-size: 0.9rem;
+        padding: 0 var(--space-sm);
+    }
+    
+    .workshop-timing {
+        font-size: 0.9rem !important;
+        padding: 0 var(--space-sm);
+    }
+    
+    .countdown-timer {
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: var(--space-xs);
+    }
+    
+    .countdown-number {
+        font-size: 1.3rem;
+    }
+    
+    .countdown-text {
+        font-size: 0.75rem;
+    }
+    
+    /* Sticky Banner */
+    .sticky-banner {
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .banner-content {
+        padding: var(--space-xs);
+    }
+    
+    .banner-button {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+        line-height: 1.4;
+    }
+    
+    .urgency-text {
+        font-size: 0.9rem;
+    }
+    
+    .seats-text {
+        font-size: 0.8rem;
+    }
+    
+    .closing-text {
+        font-size: 0.75rem;
+    }
+    
+    /* Social Proof */
+    .social-proof-notification {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        padding: var(--space-sm);
     }
 }
