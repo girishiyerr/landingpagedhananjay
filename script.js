@@ -166,6 +166,7 @@ function initFAQAccordion() {
     // Daily Countdown Timer
     function initDailyCountdown() {
         const deadlineDateElement = document.getElementById('deadlineDate');
+        const bannerDeadlineDateElement = document.getElementById('bannerDeadlineDate');
         const hoursElement = document.getElementById('hours');
         const minutesElement = document.getElementById('minutes');
         const secondsElement = document.getElementById('seconds');
@@ -235,6 +236,13 @@ function initFAQAccordion() {
                     month: 'long'
                 });
                 deadlineDateElement.textContent = `${deadlineDate} at 7:00 PM`;
+                
+                // Update banner deadline date (short format: "3 NOV")
+                if (bannerDeadlineDateElement) {
+                    const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                    const bannerDate = `${deadline.getDate()} ${monthNames[deadline.getMonth()]}`;
+                    bannerDeadlineDateElement.textContent = bannerDate;
+                }
             } else {
                 // If deadline has passed, get the next weekend
                 const nextWeekend = getNextWeekendDate();
@@ -253,6 +261,13 @@ function initFAQAccordion() {
                     month: 'long'
                 });
                 deadlineDateElement.textContent = `${deadlineDate} at 7:00 PM`;
+                
+                // Update banner deadline date (short format: "3 NOV")
+                if (bannerDeadlineDateElement) {
+                    const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                    const bannerDate = `${nextWeekend.getDate()} ${monthNames[nextWeekend.getMonth()]}`;
+                    bannerDeadlineDateElement.textContent = bannerDate;
+                }
             }
         }
         
